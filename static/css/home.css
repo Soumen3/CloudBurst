@@ -1,0 +1,24 @@
+#map{
+    position: relative;
+    height: 85vh;
+    width: 50vw;
+    border: 2px solid rgb(234, 161, 106);
+    margin-left: 1.5em;
+    border-radius: 5px;
+}
+
+#map-legend {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.legend-marker {
+    display: inline-block;
+    width: 20px;
+    height: 10px;
+    margin-right: 5px;
+}
