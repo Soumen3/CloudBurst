@@ -13,7 +13,7 @@
 ### Tech stack of this project
   - Python
   - Django
-  - MS SQL
+  - MY SQL
   - HTML
   - CSS
   - JavaScript
