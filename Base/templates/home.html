@@ -12,66 +12,132 @@
 
 
 
-<div class="map" id="map" style="width:600px; height=400px">
-    <div id="map-legend">
-        <h4>Legend</h4>
-        <p><span class="legend-marker" style="background-color: red;"></span> In Danger</p>
-        
-    </div>
-</div> 
+<div class="container-fluid pt-2">
+    <div class="card mb-3 mt-4">
 
-<div class="wnow" id="wnow">
-    <h1>Weather Information</h1>
-    <table border="1">
-        <tr>
-            <th>Category</th>
-            <th>Value</th>
-        </tr>
-        <tr>
-            <td>Current Temperature</td>
-            <td>72°F</td>
-        </tr>
-        <tr>
-            <td>Feels Alike</td>
-            <td>78°F</td>
-        </tr>
-        <tr>
-            <td>Maximum Temperature</td>
-            <td>80°F</td>
-        </tr>
-        <tr>
-            <td>Minimum Temperature</td>
-            <td>65°F</td>
-        </tr>
-        <tr>
-            <td>Air Pressure</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>Humidity</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>Wind Speed</td>
-            <td>10 mph</td>
-        </tr>
-        <tr>
-            <td>Wind Degree</td>
-            <td>10° NE</td>
-        </tr>
-        <tr>
-            <td>Cloud</td>
-            <td>%ofcloud</td>
-        </tr>
-        <tr>
-            <td>Sunrise</td>
-            <td>Time</td>
-        </tr>
-        <tr>
-            <td>Sunset</td>
-            <td>Time</td>
-        </tr>
-    </table>
+        <div class="card-body ">
+          <h5 class="card-title">Red alert zone  </h5>         
+        </div>
+
+    </div>
+
+    <div class="row gy-3">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <div class="card border-0 rounded-4" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <div class="card-body">
+              <h1 class="card-title">Current weather</h1>
+              <h3 class="card-title">Details Of .........</h3>
+              <h6 class="card-title">Coordinates</h6>
+              <h6 class="card-title"><b>Longitude:</b> 2S.627392S, <b>Latitude:</b> 77.1716934</h6>
+              <p class="card-text">
+                <table>
+                  <thead>
+                      <tr>
+                          <th><h1>29°C</h1>Feels Like : 35</th>
+                          <th colspan="3">Maximum temperature: 29°C <br> Minimum temperature: 29°C</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <th scope="row">Humidity</th>
+                          <td><b>Cloudiness</b></td>
+                          <td><b>Wind Flow</b></td>
+                      </tr>
+                      <tr>
+                          <th scope="row">79%</th>
+                          <td>40%</td>
+                          <td>Wind Speed: 3.6 m/s <br> Direction: South</td>
+                      </tr>
+                  </tbody>
+              </table> </p>
+             
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="map" id="map" style="width:600px; height=100px">
+            <div id="map-legend">
+                <h4>Legend</h4>
+                <p><span class="legend-marker" style="background-color: red;"></span> In Denger</p>
+            </div>
+        </div> 
+        </div>
+      </div>
+
+
+      <div class="row gy-3 mt-4">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Bar Chart</h5>
+              <p class="card-text"><img src="BarChart.jpg" class="img-fluid" alt="img"></p>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Some Text</h5>
+              <p class="card-text">sdkjcnbnsdkjcnjdskcndkjcnn ijcnsdcondsicsdnincidncidnc icndscndsijcndsjicndsjn</p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row gy-3 mt-4" >
+        <div class="col-sm-6">
+          <div class="card border-0">
+            <div class="card-body">
+              <h5 class="card-title">Table</h5>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Larry the Bird</td>
+                    <td>@twitter</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card border-0">
+            <div class="card-body">
+              <h5 class="card-title">Pie Chart -----</h5>
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+</div>
 
     
 {% endblock body %}
