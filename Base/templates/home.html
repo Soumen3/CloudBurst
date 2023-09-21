@@ -5,6 +5,25 @@
     {% comment %} leaflet.css {% endcomment %}
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <style>
+      #cb{
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      #cb-result {
+            display: inline-block;
+            text-align: center;
+            margin-top: 10px;
+        }
+      #result{
+        width: 500px;
+      }
+      #video{
+        border: 2px solid red;
+        margin-left: 10px;
+        margin-bottom: 2px;
+      }
+    </style>
 {% endblock css %}
 
 
@@ -55,7 +74,7 @@
           </div>
         </div>
         <div class="col-sm-6">
-          <div class="map" id="map" style="width:600px; height=100px">
+          <div class="map" id="map" style="width:600px">
             <div id="map-legend">
                 <h4>Legend</h4>
                 <p><span class="legend-marker" style="background-color: red;"></span> In Denger</p>
@@ -139,7 +158,65 @@
 
 </div>
 
-    
+
+<div id="cb" class="card border-0 rounded-4" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"> 
+  <h1>Cloudburst Detect For State Kerala</h1>    
+  <form id="dateForm">
+      <label for="month">Select a Month:</label>
+      <select id="month" name="month">
+              <option value="January">January</option>
+              <option value="February">February</option>
+              <option value="March">March</option>
+              <option value="April">April</option>
+              <option value="May">May</option>
+              <option value="June">June</option>
+              <option value="July">July</option>
+              <option value="August">August</option>
+              <option value="September">September</option>
+              <option value="October">October</option>
+              <option value="November">November</option>
+              <option value="December">December</option>
+      </select>
+
+        <label for="year">Enter a Year:</label>
+        <input type="text" id="year" name="year" placeholder="Enter year" required>
+          
+       <input type="submit" value="Submit">
+      </form>
+      <div id="cb-result">
+        <h3>Result:</h3>
+        <input type="text" id="result" readonly>
+      </div>
+      
+
+      <script>
+          document.getElementById('dateForm').addEventListener('submit', function(e) {
+              e.preventDefault();
+              const month = document.getElementById('month').value;
+              const year = document.getElementById('year').value;
+              var choice=1,str;
+              if(choice==1)
+                str='will'
+              else
+                str='will not'
+              const resultText = `Cloudburst ${str} happen in ${month}, ${year}`;
+              document.getElementById('result').value = resultText;
+          });
+      </script>
+</div>
+<div id="video" class="col-sm-6">
+      <h2>Upload A Video</h2>
+    <form action="/upload_video/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="video">Select Video:</label>
+        <input type="file" name="video" id="video" accept="video/*" required><br><br>
+
+        <label for="caption">Caption:</label>
+        <textarea name="caption" id="caption" rows="4" required></textarea><br><br>
+
+        <button type="submit">Upload</button>
+    </form>
+</div>
 {% endblock body %}
     
     
