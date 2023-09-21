@@ -45,15 +45,15 @@
           <div class="card border-0 rounded-4" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
             <div class="card-body">
               <h1 class="card-title">Current weather</h1>
-              <h3 class="card-title">Details Of .........</h3>
+              <h3 class="card-title">Details Of {{city}}</h3>
               <h6 class="card-title">Coordinates</h6>
-              <h6 class="card-title"><b>Longitude:</b> 2S.627392S, <b>Latitude:</b> 77.1716934</h6>
+              <h6 class="card-title"><b>Longitude:</b> {{lon}}, <b>Latitude:</b> {{lat}}</h6>
               <p class="card-text">
                 <table>
                   <thead>
                       <tr>
-                          <th><h1>29°C</h1>Feels Like : 35</th>
-                          <th colspan="3">Maximum temperature: 29°C <br> Minimum temperature: 29°C</th>
+                          <th><h1>{{celsi}}°C</h1>Feels Like : {{feelsLike}}</th>
+                          <th colspan="3">Maximum temperature: {{maxTemp}}°C <br> Minimum temperature: {{minTemp}}°C</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -63,9 +63,9 @@
                           <td><b>Wind Flow</b></td>
                       </tr>
                       <tr>
-                          <th scope="row">79%</th>
-                          <td>40%</td>
-                          <td>Wind Speed: 3.6 m/s <br> Direction: South</td>
+                          <th scope="row">{{humidity}}%</th>
+                          <td>{{cloud}}%</td>
+                          <td>Wind Speed: {{windSpeed}} m/s <br> Direction: {{direction}}°</td>
                       </tr>
                   </tbody>
               </table> </p>
@@ -79,7 +79,7 @@
                 <h4>Legend</h4>
                 <p><span class="legend-marker" style="background-color: red;"></span> In Denger</p>
             </div>
-        </div> 
+          </div> 
         </div>
       </div>
 
@@ -112,34 +112,34 @@
             <div class="card-body">
               <h5 class="card-title">Table</h5>
               <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                  </tr>
-                </thead>
-                <tbody class="table-group-divider">
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry the Bird</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                  </tr>
-                </tbody>
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry the Bird</td>
+                        <td>@twitter</td>
+                        <td>@twitter</td>
+                    </tr>
+                    </tbody>
               </table>
               
             </div>
@@ -147,14 +147,12 @@
         </div>
         <div class="col-sm-6">
           <div class="card border-0">
-            <div class="card-body">
-              <h5 class="card-title">Pie Chart -----</h5>
-              
-              
-            </div>
+                <div class="card-body">
+                    <h5 class="card-title">Pie Chart -----</h5>
+                </div>
           </div>
         </div>
-      </div>
+    </div>
 
 </div>
 
@@ -164,6 +162,7 @@
   <form id="dateForm">
       <label for="month">Select a Month:</label>
       <select id="month" name="month">
+              <option value=""></option>
               <option value="January">January</option>
               <option value="February">February</option>
               <option value="March">March</option>
