@@ -21,7 +21,7 @@
       #video{
         border: 2px solid red;
         margin-left: 10px;
-        
+        margin-bottom: 2px;
       }
     </style>
 {% endblock css %}
@@ -41,19 +41,24 @@
     </div>
 
     <div class="row gy-3">
-        <div class="col-sm-6 mb-3 mb-sm-0">
-          <div class="card border-0 rounded-4" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+      <div class="col-sm-8 mb-3 mb-sm-0 mt-4">
+        <div class="card border-0 rounded-4 custom-card">
             <div class="card-body">
-              <h1 class="card-title">Current weather</h1>
-              <h3 class="card-title">Details Of {{city}}</h3>
-              <h6 class="card-title">Coordinates</h6>
-              <h6 class="card-title"><b>Longitude:</b> {{lon}}, <b>Latitude:</b> {{lat}}</h6>
+                <form class="d-flex custom-search-form" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+              <h1 class="card-title custom-card-title">Current weather</h1>
+              <h3 class="card-title custom-card-title">Details Of {{city}}</h3>
+              <h6 class="card-title custom-card-title"><b>Sunrise :</b>--- , <b>  Sunset :</b>----    </h6>
+              <h6 class="card-title custom-card-title">Coordinates</h6>
+              <h6 class="card-title custom-card-title"><b>Longitude:</b> {{lon}}, <b>Latitude:</b> {{lat}}</h6>
               <p class="card-text">
-                <table>
+                <table class="custom-table">
                   <thead>
                       <tr>
                           <th><h1>{{celsi}}°C</h1>Feels Like : {{feelsLike}}</th>
-                          <th colspan="3">Maximum temperature: {{maxTemp}}°C <br> Minimum temperature: {{minTemp}}°C</th>
+                          <th colspan="5">Maximum temperature: {{maxTemp}}°C <br> Minimum temperature: {{minTemp}}°C</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -61,11 +66,15 @@
                           <th scope="row">Humidity</th>
                           <td><b>Cloudiness</b></td>
                           <td><b>Wind Flow</b></td>
+                          <td><b>Air Pressure</b></td>
+                          <td><b>Visibility</b></td>
                       </tr>
                       <tr>
                           <th scope="row">{{humidity}}%</th>
                           <td>{{cloud}}%</td>
                           <td>Wind Speed: {{windSpeed}} m/s <br> Direction: {{direction}}°</td>
+                          <td>45</td>
+                          <td>45</td>
                       </tr>
                   </tbody>
               </table> </p>
@@ -73,14 +82,19 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-6">
-          <div class="map" id="map" style="width:600px">
-            <div id="map-legend">
-                <h4>Legend</h4>
-                <p><span class="legend-marker" style="background-color: red;"></span> In Denger</p>
-            </div>
-          </div> 
-        </div>
+        <div class="col-sm-4">
+          <div class="card border-0 h-100">
+              <div class="card-body">
+                  <div class="map" id="map" style="width: 100%; max-width: none;">
+                      <div id="map-legend">
+                          <h4>Legend</h4>
+                          <p><span class="legend-marker" style="background-color: red;"></span> In Danger</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
       </div>
 
 
@@ -154,38 +168,42 @@
         </div>
     </div>
 
-</div>
-
-
-<div id="cb" class="card border-0 rounded-4" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"> 
-  <h1>Cloudburst Detect For State Kerala</h1>    
-  <form id="dateForm">
-      <label for="month">Select a Month:</label>
-      <select id="month" name="month">
-              <option value=""></option>
-              <option value="January">January</option>
-              <option value="February">February</option>
-              <option value="March">March</option>
-              <option value="April">April</option>
-              <option value="May">May</option>
-              <option value="June">June</option>
-              <option value="July">July</option>
-              <option value="August">August</option>
-              <option value="September">September</option>
-              <option value="October">October</option>
-              <option value="November">November</option>
-              <option value="December">December</option>
-      </select>
-
-        <label for="year">Enter a Year:</label>
-        <input type="text" id="year" name="year" placeholder="Enter year" required>
-          
-       <input type="submit" value="Submit">
+    <div id="cb" class="card border-0 rounded-4">
+      <h1 class="card-title">Cloudburst Detect For State Kerala</h1>
+      <form id="dateForm" class="mb-3">
+          <div class="form-group">
+              <label for="month">Select a Month:</label>
+              <select id="month" name="month" class="form-control">
+                  <option value=""></option>
+                  <option value="January">January</option>
+                  <option value="February">February</option>
+                  <option value="March">March</option>
+                  <option value="April">April</option>
+                  <option value="May">May</option>
+                  <option value="June">June</option>
+                  <option value="July">July</option>
+                  <option value="August">August</option>
+                  <option value="September">September</option>
+                  <option value="October">October</option>
+                  <option value="November">November</option>
+                  <option value="December">December</option>
+              </select>
+          </div>
+          <div class="form-group">
+              <label for="year">Enter a Year:</label>
+              <input type="text" id="year" name="year" class="form-control" placeholder="Enter year" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
       </form>
       <div id="cb-result">
-        <h3>Result:</h3>
-        <input type="text" id="result" readonly>
+          <h3 class="mt-3">Result:</h3>
+          <input type="text" id="result" readonly class="form-control">
       </div>
+  </div>
+  
+
+
+
       
 
       <script>
