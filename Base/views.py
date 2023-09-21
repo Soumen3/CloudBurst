@@ -68,9 +68,9 @@ def home(request):
     context['pressure']=pressure
     visibility=data['visibility']
     context['visibility']=visibility/1000
-    sunriseTime=datetime.fromtimestamp((int)(data["sys"]["sunrise"])).strftime('%H:%M')
+    sunriseTime=datetime.fromtimestamp((int)(data["sys"]["sunrise"])).strftime('%I:%M %p')
     context['sunrise']=sunriseTime
-    sunsetTime=datetime.fromtimestamp((int)(data["sys"]["sunset"])).strftime('%H:%M')
+    sunsetTime=datetime.fromtimestamp((int)(data["sys"]["sunset"])).strftime('%I:%M %p')
     context['sunset']=sunsetTime
 
     cloudiness = data["clouds"]["all"]

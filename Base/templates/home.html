@@ -44,20 +44,20 @@
       <div class="col-sm-8 mb-3 mb-sm-0 mt-4">
         <div class="card border-0 rounded-4 custom-card">
             <div class="card-body">
-                <form class="d-flex custom-search-form" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
-              <h1 class="card-title custom-card-title">Current weather</h1>
-              <h3 class="card-title custom-card-title">Details Of {{city}}</h3>
-              <h6 class="card-title custom-card-title"><b>Sunrise :</b>--- , <b>  Sunset :</b>----    </h6>
-              <h6 class="card-title custom-card-title">Coordinates</h6>
-              <h6 class="card-title custom-card-title"><b>Longitude:</b> {{lon}}, <b>Latitude:</b> {{lat}}</h6>
-              <p class="card-text">
+                <form action="" method="post" class="d-flex custom-search-form" role="search">{% csrf_token %}
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name='city'>
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <h1 class="card-title custom-card-title">Current weather</h1>
+                <h3 class="card-title custom-card-title">Details Of {{city}}</h3>
+                <h6 class="card-title custom-card-title"><b>Sunrise : </b>{{sunrise}}, <b>  Sunset : </b>{{sunset}}    </h6>
+                <h6 class="card-title custom-card-title">Coordinates</h6>
+                <h6 class="card-title custom-card-title"><b>Longitude:</b> {{lon}}, <b>Latitude:</b> {{lat}}</h6>
+                <p class="card-text">
                 <table class="custom-table">
                   <thead>
                       <tr>
-                          <th><h1>{{celsi}}°C</h1>Feels Like : {{feelsLike}}</th>
+                          <th><h1>{{celsi}}°C</h1>Feels Like : {{feelsLike}}°C</th>
                           <th colspan="5">Maximum temperature: {{maxTemp}}°C <br> Minimum temperature: {{minTemp}}°C</th>
                       </tr>
                   </thead>
@@ -73,8 +73,8 @@
                           <th scope="row">{{humidity}}%</th>
                           <td>{{cloud}}%</td>
                           <td>Wind Speed: {{windSpeed}} m/s <br> Direction: {{direction}}°</td>
-                          <td>45</td>
-                          <td>45</td>
+                          <td>{{pressure}} hPa</td>
+                          <td>{{visibility}} km</td>
                       </tr>
                   </tbody>
               </table> </p>
